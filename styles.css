@@ -1,0 +1,49 @@
+body {
+    background-image: url('./staryNight3.jpg');
+    background-size: cover;
+}
+
+h1 {
+    color: rgb(190, 239, 239);
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    border: none;
+}
+
+form {
+    margin-top: 75vh;
+    display: flex;
+    border-radius: 10px;
+    box-shadow:
+        0 0 30px 15px #fff,
+        /* inner white */
+        0 0 50px 30px #f0f,
+        /* middle magenta */
+        0 0 70px 45px #0ff;
+    /* outer cyan */
+}
+
+input {
+    background-color: 0 0 30px 15px #fff;
+    height: 40px;
+    border-radius: 10px 0px 0px 10px;
+    border: none;
+}
+
+button {
+    border-radius: 0px 10px 10px 0px;
+    background-color: rgb(190, 239, 239, 0.1);
+    color: rgb(190, 239, 239);
+    border: none;
+}
+
+button:hover {
+    background-color: rgb(190, 239, 239);
+    color: #f0f;
+    transition: ease-in-out 0.5s;
+}

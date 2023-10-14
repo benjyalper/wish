@@ -1,6 +1,8 @@
 body {
-    background-image: url('./images/StaryNight3.jpg');
+    background-image: url('./images/wish.jpg');
     background-size: cover;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
@@ -12,11 +14,11 @@ h1 {
 .form-container {
     display: flex;
     justify-content: center;
-    border: none;
+    margin-top: 75vh;
+    /* Adjust the margin-top as needed */
 }
 
 form {
-    margin-top: 75vh;
     display: flex;
     border-radius: 10px;
     box-shadow:
@@ -26,6 +28,8 @@ form {
         /* middle magenta */
         0 0 70px 45px #0ff;
     /* outer cyan */
+    /* margin-top: -40px; */
+    /* Adjust the margin-top to align the form with the dot */
 }
 
 input {
@@ -33,6 +37,7 @@ input {
     height: 40px;
     border-radius: 10px 0px 0px 10px;
     border: none;
+    flex: 1;
 }
 
 button {
@@ -47,3 +52,55 @@ button:hover {
     color: #f0f;
     transition: ease-in-out 0.5s;
 }
+
+.star {
+    width: 2px;
+    /* Diameter of the circle (2px radius * 2 + 2px for the glow effect) */
+    height: 2px;
+    /* Diameter of the circle (2px radius * 2 + 2px for the glow effect) */
+    border-radius: 50%;
+    /* Makes the div a circle */
+    background-color: #ffffff;
+    /* White color for the circle */
+    box-shadow: 0 0 8px 2px #ffffff;
+    /* Glow effect (2px blur and 2px spread) */
+    visibility: hidden;
+}
+
+
+
+
+.falling-star {
+    width: 2px;
+    /* Diameter of the circle (2px radius * 2 + 2px for the glow effect) */
+    height: 2px;
+    /* Diameter of the circle (2px radius * 2 + 2px for the glow effect) */
+    border-radius: 50%;
+    /* Makes the div a circle */
+    background-color: #ffffff;
+    /* White color for the circle */
+    box-shadow: 0 0 8px 2px #ffffff;
+    /* Glow effect (2px blur and 2px spread) */
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh) translateX(0);
+    }
+
+    100% {
+        transform: translateY(calc(30vh + 100px)) translateX(calc(100vh * 1.5));
+
+    }
+
+}
+
+/* @keyframes scale-up {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(5);
+    }
+} */

@@ -11,10 +11,14 @@ h1 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+button>img {
+    height: 35px;
+}
+
 .form-container {
     display: flex;
     justify-content: center;
-    margin-top: 75vh;
+    margin-top: 88vh;
     /* Adjust the margin-top as needed */
 }
 
@@ -38,6 +42,11 @@ input {
     border-radius: 10px 0px 0px 10px;
     border: none;
     flex: 1;
+}
+
+input::placeholder {
+    color: #f0f;
+    padding: 5px;
 }
 
 button {

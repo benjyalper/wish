@@ -13,6 +13,13 @@ h1 {
 
 button>img {
     height: 35px;
+    transition: 1s ease-in-out;
+
+}
+
+button>img:hover {
+    height: 35px;
+    background-color: rgb(246, 219, 241);
 }
 
 .form-container {
@@ -57,7 +64,7 @@ button {
     /* Adjust the duration as needed */
     color: rgb(190, 239, 239);
     border: none;
-    transition: background 1s ease-in-out !important;
+    transition: background 1s ease-in-out;
 }
 
 button:hover {

@@ -12,9 +12,9 @@
     <body>
         <div class="star"></div>
         <div class="form-container">
-            <form action="/">
-                <input type="text" placeholder="Make A Wish...">
-                <button type="submit"><img src="/public/images/holding heart.jpg"></button>
+            <form action="/submit" method="POST">
+                <input type="text" name="text" placeholder="Make A Wish..." maxlength="100" autocomplete="off">
+                <button type="submit"><img src="/public/images/holding heart.png" alt="Heart Image"></button>
             </form>
         </div>
 

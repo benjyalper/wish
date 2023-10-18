@@ -1,5 +1,5 @@
 body {
-    background-image: url('/public/images/wish.jpg');
+    background-image: url('/public/images/StaryNight3.jpg');
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -18,8 +18,7 @@ button>img {
 }
 
 button>img:hover {
-    height: 35px;
-    background-color: rgb(246, 219, 241);
+    background-color: transparent;
 }
 
 .form-container {
@@ -32,47 +31,54 @@ button>img:hover {
 form {
     display: flex;
     border-radius: 10px;
-    box-shadow:
-        0 0 30px 15px #fff,
-        /* inner white */
-        0 0 50px 30px #f0f,
-        /* middle magenta */
-        0 0 70px 45px #0ff;
+    /* box-shadow: */
+    /* 0 0 80px 15px #fff */
+    /* inner white */
+    /* 0 0 50px 30px #f0f, */
+    /* middle magenta */
+    /* 0 0 70px 45px #0ff; */
     /* outer cyan */
     /* margin-top: -40px; */
     /* Adjust the margin-top to align the form with the dot */
 }
 
 input {
-    background-color: 0 0 30px 15px #fff;
+    background-color: transparent;
     height: 40px;
     border-radius: 10px 0px 0px 10px;
     border: none;
     flex: 1;
     padding-left: 10px;
+    color: #a6bfc2;
+    transition: 2s ease-in-out;
+    font-size: large;
+}
+
+input:hover {
+    box-shadow: 0 0 90px 5px #fff;
 }
 
 input::placeholder {
-    color: rgb(4, 143, 143);
+    color: #a6bfc2;
     padding: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+
 }
 
 
 button {
     border-radius: 0px 10px 10px 0px;
-    background-color: rgb(255, 255, 255);
+    background-color: transparent;
     /* Adjust the duration as needed */
     color: rgb(190, 239, 239);
     border: none;
-    transition: background 1s ease-in-out;
+    transition: 1s ease-in-out;
 }
 
 button:hover {
-    /* background: linear-gradient(to right, rgba(255, 255, 255, 1), rgb(246, 219, 241)); */
-    background-color: rgb(246, 219, 241);
-    color: #f0f;
+    box-shadow: 0 0 80px 5px #fff;
 }
-
 
 .star {
     width: 2px;

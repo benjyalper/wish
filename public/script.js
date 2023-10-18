@@ -6,6 +6,7 @@ $(document).ready(function () {
     let animationStarted = false;
 
     $('button').on('click', function (event) {
+        console.log('Button clicked!');
         event.preventDefault();
 
         if (!animationStarted) {
@@ -35,7 +36,31 @@ $(document).ready(function () {
                 $(this).css('visibility', 'hidden');
             });
 
+            // Get the value from the input field
+            const submittedText = $('input[name="text"]').val();
+
+            // AJAX request to handle form submission
+            $.ajax({
+                type: 'POST',
+                url: '/submit',
+                data: { text: submittedText }, // Send the input field value as the 'text' parameter
+                success: function (response) {
+                    console.log(response.message);
+                },
+                error: function (error) {
+                    console.error('Error:', error);
+                }
+            });
+
+            // setTimeout(function () {
+            //     location.reload();
+            // }, 1000);
+
             animationStarted = true;
         }
     });
 });
+
+
+
+

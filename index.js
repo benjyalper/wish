@@ -6,15 +6,18 @@ import mysql from 'mysql2';
 
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-
-
 const app = express();
 const port = 3000;
+
 const pool = mysql.createPool({
-    host: 'localhost', // or your MySQL host
-    user: 'benjyalper', // your MySQL username
-    password: 'Ag1ag1ag1$', // your MySQL password
-    database: 'wishdatabase' // your MySQL database name
+    host: 'localhost',
+    user: 'benjyalper',
+    password: 'Ag1ag1ag1$',
+    database: 'wishdatabase',
+    charset: 'UTF8MB4_GENERAL_CI', // Set the character set to UTF-8
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 });
 
 
@@ -31,6 +34,28 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
 
+app.get('/wishes', (req, res) => {
+    pool.getConnection((err, connection) => {
+        if (err) {
+            return res.status(500).json({ error: 'Error connecting to the database.' });
+        }
+
+        // Query to select all wishes from the database
+        const selectQuery = 'SELECT * FROM wishes';
+        connection.query(selectQuery, (error, results) => {
+            connection.release();
+
+            if (error) {
+                console.error('Error retrieving data from the database:', error);
+                return res.status(500).json({ error: 'Error retrieving data from the database' });
+            }
+
+            // Send the retrieved data as a response
+            return res.status(200).json({ wishes: results });
+        });
+    });
+});
+
 app.post('/submit', (req, res) => {
     const submittedText = req.body.text;
 
@@ -38,7 +63,6 @@ app.post('/submit', (req, res) => {
         return res.status(400).json({ error: 'Text exceeds the maximum character limit of 100.' });
     }
 
-    console.log(submittedText);
 
     pool.getConnection((err, connection) => {
         if (err) {

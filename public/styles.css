@@ -28,24 +28,38 @@ button>img:hover {
     /* Adjust the margin-top as needed */
 }
 
+
 form {
     display: flex;
     border-radius: 10px;
-    /* box-shadow: */
-    /* 0 0 80px 15px #fff */
-    /* inner white */
-    /* 0 0 50px 30px #f0f, */
-    /* middle magenta */
-    /* 0 0 70px 45px #0ff; */
-    /* outer cyan */
-    /* margin-top: -40px; */
-    /* Adjust the margin-top to align the form with the dot */
+    gap: 5px;
 }
+
+#wish-label {
+    color: #a6bfc2;
+    padding: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+    width: 200px;
+    /* Set a fixed width for the label */
+    text-align: center;
+    /* Center the text inside the label */
+    display: inline-block;
+    /* Allow the label to have a specific width while staying inline */
+    transition: 2s ease-in-out;
+    border-radius: 10px;
+}
+
+label:hover {
+    box-shadow: 0 0 90px 5px #fff;
+}
+
+
 
 input {
     background-color: transparent;
     height: 40px;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 10px 10px 10px 10px;
     border: none;
     flex: 1;
     padding-left: 10px;
@@ -63,21 +77,20 @@ input::placeholder {
     padding: 5px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: large;
-
 }
 
 
 button {
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 10px 10px 10px 10px;
     background-color: transparent;
     /* Adjust the duration as needed */
     color: rgb(190, 239, 239);
     border: none;
-    transition: 1s ease-in-out;
+    transition: 2s ease-in-out;
 }
 
 button:hover {
-    box-shadow: 0 0 80px 5px #fff;
+    box-shadow: 0 0 90px 5px #fff;
 }
 
 .star {

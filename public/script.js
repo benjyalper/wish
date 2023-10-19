@@ -5,6 +5,41 @@ $(document).ready(function () {
 
     let animationStarted = false;
 
+    var wishes = [
+        "Make A Wish",
+        "בקש משאלה",
+        "تمنى أمنية",
+        "许个愿",
+        "Faites un vœu",
+        "Haz un deseo",
+        "願い事をする",
+        "Fai un desiderio",
+        "एक इच्छा करें",
+        "bir Dilek Tut",
+        "Κάνε μια ευχή",
+        "doe een Wens",
+        "آرزو کن",
+        "faça um desejo",
+        "загадать желание"
+    ];
+
+    var currentIndex = 0;
+
+
+    function changeWishText() {
+        $('#wish-label').animate({
+            'opacity': 0
+        }, 2000, function () {
+            $(this).text(wishes[currentIndex]);
+        }).animate({
+            'opacity': 1
+        }, 2000);
+
+        currentIndex = (currentIndex + 1) % wishes.length;
+    }
+
+    setInterval(changeWishText, 3000);
+
     $('button').on('click', function (event) {
         console.log('Button clicked!');
         event.preventDefault();
@@ -60,7 +95,3 @@ $(document).ready(function () {
         }
     });
 });
-
-
-
-

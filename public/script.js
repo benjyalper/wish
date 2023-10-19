@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     const star = $('.star');
     const maxX = $(window).width();
     const maxY = $(window).height();
@@ -7,7 +8,8 @@ $(document).ready(function () {
 
     var wishes = [
         "Make A Wish",
-        "בקש משאלה",
+        "הביעו משאלה",
+        "null",
         "تمنى أمنية",
         "许个愿",
         "Faites un vœu",

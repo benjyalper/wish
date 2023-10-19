@@ -46,12 +46,6 @@ form {
     /* Center the text inside the label */
     display: inline-block;
     /* Allow the label to have a specific width while staying inline */
-    transition: 2s ease-in-out;
-    border-radius: 10px;
-}
-
-label:hover {
-    box-shadow: 0 0 90px 5px #fff;
 }
 
 

@@ -1,5 +1,5 @@
 body {
-    background-image: url('/public/images/StaryNight3.jpg');
+    background-image: url('images/StaryNight3.jpg');
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -24,9 +24,12 @@ button>img:hover {
 .form-container {
     display: flex;
     justify-content: center;
+    margin-right: 15vw;
     margin-top: 88vh;
+    gap: 20px;
     /* Adjust the margin-top as needed */
 }
+
 
 
 form {
@@ -54,7 +57,7 @@ input {
     background-color: transparent;
     height: 40px;
     border-radius: 10px 10px 10px 10px;
-    border: none;
+    border: 2px solid rgb(166, 191, 194, 0.2);
     flex: 1;
     padding-left: 10px;
     color: #a6bfc2;
@@ -81,6 +84,7 @@ button {
     color: rgb(190, 239, 239);
     border: none;
     transition: 2s ease-in-out;
+    margin-left: 2em;
 }
 
 button:hover {
@@ -138,3 +142,44 @@ button:hover {
         transform: scale(5);
     }
 } */
+
+@media (max-width: 650px) {
+    body {
+        height: 95vh;
+    }
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 75vh;
+        /* Adjust the margin-top value as needed */
+        max-height: 75vh;
+        /* Set a maximum height for the form container */
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        gap: 3px;
+    }
+
+    #wish-label {
+        max-height: 50px;
+    }
+
+    button {
+        width: 50px;
+        margin-top: 10px;
+        /* Adjust the margin-top value for the button */
+    }
+
+    input {
+        height: 50px;
+        margin-top: 10px;
+        border: 2px solid rgb(166, 191, 194, 0.2);
+        /* Adjust the margin-top value for the input field */
+    }
+}

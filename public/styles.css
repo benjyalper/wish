@@ -35,7 +35,8 @@ form {
 }
 
 #wish-label {
-    color: #a6bfc2;
+    color: rgb(252, 159, 244);
+    text-shadow: 0 0 10px #a6bfc2;
     padding: 5px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: large;

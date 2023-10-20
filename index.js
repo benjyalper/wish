@@ -43,16 +43,17 @@ app.get('/wishes', (req, res) => {
 
         // Query to select a random wish from the database
         const selectRandomWishQuery = 'SELECT * FROM wishes ORDER BY RAND() LIMIT 1';
-        connection.query(selectRandomWishQuery, (error, results) => {
+        const showAllQueries = 'SELECT * FROM wishes';
+        connection.query(showAllQueries, (error, results) => {
             connection.release();
 
             if (error) {
-                console.error('Error retrieving random wish from the database:', error);
-                return res.status(500).json({ error: 'Error retrieving random wish from the database' });
+                console.error('Error retrieving wishes from the database:', error);
+                return res.status(500).json({ error: 'Error retrieving wishes from the database' });
             }
 
             // Send the retrieved random wish as a response
-            return res.status(200).json({ wish: results[0] });
+            return res.status(200).json({ wish: results });
         });
     });
 });

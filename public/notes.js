@@ -38,50 +38,54 @@ $(document).ready(function () {
 
         currentIndex = (currentIndex + 1) % wishes.length;
 
+        $.ajax({
+            url: '/wishes',
+            method: 'GET',
+            success: function (response) {
+                const wishText = response.wish.text;
+                const words = wishText.split(' '); // Split wish text into words
+                let formattedText = ''; // Formatted text with line breaks
+                for (let i = 0; i < words.length; i++) {
+                    if (i > 0 && i % 3 === 0) {
+                        formattedText += '<br>'; // Insert line break every 5 words
+                    }
+                    formattedText += words[i] + ' ';
+                }
 
+                const wishElement = $('<div class="wish"></div>').html(formattedText.trim());
+                const fontSize = Math.floor(Math.random() * 21) + 10; // Font size between 20 and 30 pixels
+                const leftPosition = Math.min(Math.floor(Math.random() * maxX) + maxX, maxX - fontSize); // Limit to stay within viewport width
+                const topPosition = Math.min(Math.floor(Math.random() * maxY), maxY - fontSize); // Limit to stay within viewport height
 
-        const wishExamples = [
-            "שישוחררו החטופים",
-            "Help the innocent children",
-            "Peace-שלום-سلام",
-            "Stop the suffering",
-            "שהחיילים יחזרו בשלום",
-            "שהמלחמה תיגמר"
-        ];
-        const wishElement = $('<div class="wishExample"></div>').html(wishExamples[Math.floor(Math.random() * wishExamples.length)]);
-        const fontSize = Math.floor(Math.random() * 21) + 10; // Font size between 20 and 30 pixels
-        const leftPosition = Math.floor(Math.random() * $(window).width());
-        // Random X position within the entire width of the screen
-        const topPosition = Math.floor(Math.random() * maxY);
+                wishElement.css({
+                    'position': 'absolute',
+                    'left': leftPosition + 'px',
+                    'top': topPosition + 'px',
+                    'font-size': fontSize + 'px',
+                    'font-family': 'Verdana, Geneva, Tahoma, sans-serif',
+                    'text-align': 'center',
+                    'color': '#a6bfc2',
+                    'opacity': 0,
+                    'text-shadow': '0 0 10px #a6bfc2', // Add white glow box shadow effect
+                });
 
-        wishElement.css({
-            'position': 'absolute',
-            'left': leftPosition + 'px',
-            'top': topPosition + 'px',
-            'font-size': fontSize + 'px',
-            'font-family': 'Verdana, Geneva, Tahoma, sans-serif',
-            'text-align': 'center',
-            'color': '#a6bfc2',
-            'opacity': 0,
-            'border-radius': '20px',
-            'padding': '5px 15px',
-            'text-shadow': '0 0 20px #fff'
-            // 'text-shadow': '0 0 10px #a6bfc2', // Add white glow box shadow effect
+                $('body').append(wishElement);
+
+                wishElement.animate({
+                    'opacity': 1
+                }, 2000, function () {
+                    $(this).animate({
+                        'opacity': 0
+                    }, 2000, function () {
+                        $(this).remove();
+                    });
+                });
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            }
         });
-
-        $('body').append(wishElement);
-
-        wishElement.animate({
-            'opacity': 1
-        }, 2000, function () {
-            $(this).animate({
-                'opacity': 0
-            }, 2000, function () {
-                $(this).remove();
-            });
-        });
-    };
-
+    }
 
     setInterval(changeWishText, 5000);
 

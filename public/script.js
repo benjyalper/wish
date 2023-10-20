@@ -42,8 +42,8 @@ $(document).ready(function () {
 
         const wishExamples = [
             "שישוחררו החטופים",
-            "Help the innocent children",
-            "Peace-שלום-سلام",
+            "Help the children",
+            "Peace שלום سلام",
             "Stop the suffering",
             "שהחיילים יחזרו בשלום",
             "שהמלחמה תיגמר"

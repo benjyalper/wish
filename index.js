@@ -34,27 +34,29 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
 
+// Modify the '/wishes' route to get random wishes from the database
 app.get('/wishes', (req, res) => {
     pool.getConnection((err, connection) => {
         if (err) {
             return res.status(500).json({ error: 'Error connecting to the database.' });
         }
 
-        // Query to select all wishes from the database
-        const selectQuery = 'SELECT * FROM wishes';
-        connection.query(selectQuery, (error, results) => {
+        // Query to select a random wish from the database
+        const selectRandomWishQuery = 'SELECT * FROM wishes ORDER BY RAND() LIMIT 1';
+        connection.query(selectRandomWishQuery, (error, results) => {
             connection.release();
 
             if (error) {
-                console.error('Error retrieving data from the database:', error);
-                return res.status(500).json({ error: 'Error retrieving data from the database' });
+                console.error('Error retrieving random wish from the database:', error);
+                return res.status(500).json({ error: 'Error retrieving random wish from the database' });
             }
 
-            // Send the retrieved data as a response
-            return res.status(200).json({ wishes: results });
+            // Send the retrieved random wish as a response
+            return res.status(200).json({ wish: results[0] });
         });
     });
 });
+
 
 app.post('/submit', (req, res) => {
     const submittedText = req.body.text;
